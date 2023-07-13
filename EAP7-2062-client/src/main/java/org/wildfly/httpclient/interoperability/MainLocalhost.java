@@ -10,7 +10,7 @@ import org.wildfly.httpclient.interoperability.test.StatelessIncrementorBean;
 import javax.naming.Context;
 import java.util.Properties;
 
-public class Main2 {
+public class MainLocalhost {
 	public static void main(String[] args) throws Exception {
 		Properties env = new Properties();
 		env.setProperty(Context.INITIAL_CONTEXT_FACTORY, org.wildfly.naming.client.WildFlyInitialContextFactory.class.getName());
