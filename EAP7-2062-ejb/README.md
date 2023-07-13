@@ -14,3 +14,26 @@
 ```shell
 keytool -genkeypair -alias localhost -keyalg RSA -keysize 1024 -validity 365 -keystore application.keystore -dname "CN=localhost" -storepass password
 ```
+
+```shell
+oc new-build --name=wildfly-ejb \
+--binary=true \
+--strategy=source \
+--env=ADMIN_USERNAME=admin \
+--env=ADMIN_PASSWORD=pass.1234 \
+--image=quay.io/wildfly/wildfly-s2i-jdk11:latest
+
+oc start-build wildfly-ejb \
+--from-dir=./EAP7-2062-ejb/target/server \
+--follow
+```
+
+```yaml
+apiVersion: wildfly.org/v1alpha1
+kind: WildFlyServer
+metadata:
+name: wildfly-ejb
+spec:
+applicationImage: image-registry.openshift-image-registry.svc:5000/eap7-2062/wildfly-ejb
+replicas: 1
+```
