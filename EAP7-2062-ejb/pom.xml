@@ -142,13 +142,13 @@
                     <galleon-options>
                         <jboss-fork-embedded>true</jboss-fork-embedded>
                     </galleon-options>
-                    <packaging-scripts>
+                    <!--<packaging-scripts>
                         <execution>
                             <commands>
                                 <command>/socket-binding-group=standard-sockets:write-attribute(name=port-offset,value=100)</command>
                             </commands>
                         </execution>
-                    </packaging-scripts>
+                    </packaging-scripts>-->
                     <!-- <packaging-scripts>
                         <execution>
                             <commands>
